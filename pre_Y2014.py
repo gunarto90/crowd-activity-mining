@@ -16,11 +16,13 @@ if __name__ == '__main__':
     config = fu.read_config()
     dataset = config['dataset']
     active_dataset = config['active_dataset']
+    print(active_dataset)
     general_folder = config['dataset_folder']
     output_folder = config['dataset_processed_folder']
     for d in active_dataset:
         print(d)
         dataset_folder = '/'.join((general_folder, config[d]['folder']))
+        final_output_folder = '/'.join((output_folder, config[d]['folder']))
         checkin_file = config[d].get('checkin')
         user_file = config[d].get('user')
         venue_file = config[d].get('venue')
@@ -53,7 +55,7 @@ if __name__ == '__main__':
 
         # print(df[2].value_counts())
 
-        output_name = '/'.join((output_folder, user_file))
+        output_name = '/'.join((final_output_folder, user_file))
         if not os.path.isfile(output_name):
             if not os.path.exists(os.path.dirname(output_name)):
                 try:
@@ -65,18 +67,18 @@ if __name__ == '__main__':
                 for x in users:
                     f.write(''.join((str(x), '\n')))
 
-        output_name = '/'.join((output_folder, venue_file))
+        output_name = '/'.join((final_output_folder, venue_file))
         if not os.path.isfile(output_name):
             with open(output_name, 'w') as f:
                 w = csv.writer(f)
                 w.writerows(venues.items())
 
-        output_name = '/'.join((output_folder, category_file))
+        output_name = '/'.join((final_output_folder, category_file))
         if not os.path.isfile(output_name):
             with open(output_name, 'w') as f:
                 w = csv.writer(f)
                 w.writerows(categories.items())
 
-        output_name = '/'.join((output_folder, checkin_file))
+        output_name = '/'.join((final_output_folder, checkin_file))
         if not os.path.isfile(output_name):
             df.to_csv(output_name, header=False, sep=',')
