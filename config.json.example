@@ -1,0 +1,29 @@
+{
+    "dataset":[
+        "y2014-tokyo",
+        "y2014-nyc"
+    ],
+    "active_dataset":[
+        "y2014-nyc"
+    ],
+    "dataset_folder":"./dataset/Foursquare",
+    "dataset_processed_folder":"./dataset/Foursquare_Processed",
+    "y2014-nyc":{
+        "folder":"Y2014_Categories",
+        "checkin":"dataset_tsmc2014/dataset_TSMC2014_NYC.txt",
+        "user":"dataset_tsmc2014/dataset_TSMC2014_NYC_User.txt",
+        "venue":"dataset_tsmc2014/dataset_TSMC2014_NYC_Venue.txt",
+        "category":"dataset_tsmc2014/dataset_TSMC2014_NYC_Category.txt",
+        "delimiter":"\t",
+        "header":null
+    }, 
+    "y2014-tokyo":{
+        "folder":"Y2014_Categories",
+        "checkin":"dataset_tsmc2014/dataset_TSMC2014_TKY.txt",
+        "user":"dataset_tsmc2014/dataset_TSMC2014_TKY_User.txt",
+        "venue":"dataset_tsmc2014/dataset_TSMC2014_TKY_Venue.txt",
+        "category":"dataset_tsmc2014/dataset_TSMC2014_TKY_Category.txt",
+        "delimiter":"\t",
+        "header":null
+    }
+}
